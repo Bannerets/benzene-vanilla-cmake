@@ -35,7 +35,12 @@ _BEGIN_BENZENE_NAMESPACE_
 /** Maximum size of a bitset. 
     Very important. Only mess with this if you know what you are
     doing! */
-#if defined(SUPPORT_19x19)
+#if defined(SUPPORT_23x23)
+
+/** Actually need only 529+7 for 23x23. */
+static const int BITSETSIZE = 544;
+
+#elif defined(SUPPORT_19x19)
 
 /** Actually need only 361+7 for 19x19. */
 static const int BITSETSIZE = 384;

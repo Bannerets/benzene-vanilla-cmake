@@ -71,7 +71,15 @@ _BEGIN_BENZENE_NAMESPACE_
 */
 // @{ 
 
-#if defined(SUPPORT_19x19)
+#if defined(SUPPORT_23x23)
+
+/** The maximum width of a valid ConstBoard. */
+static const int MAX_WIDTH  = 23;
+
+/** The maximum height of a valid ConstBoard. */
+static const int MAX_HEIGHT = 23;
+
+#elif defined(SUPPORT_19x19)
 
 /** The maximum width of a valid ConstBoard. */
 static const int MAX_WIDTH  = 19;
@@ -101,7 +109,11 @@ static const int MAX_HEIGHT = 13;
 
 //----------------------------------------------------------------------------
 
-#if defined(SUPPORT_19x19)
+#if defined(SUPPORT_23x23)
+
+#include "HexPoints23x23.hpp"
+
+#elif defined(SUPPORT_19x19)
 
 #include "HexPoints19x19.hpp"
 

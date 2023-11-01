@@ -59,7 +59,6 @@ private:
 
         BOOST_STATIC_ASSERT(NORTH < SOUTH);
         BOOST_STATIC_ASSERT(EAST < WEST);
-        BOOST_STATIC_ASSERT(BITSETSIZE <= 256);
     };
 
     const ConstBoard* m_const;

@@ -11,8 +11,15 @@ add_definitions(-DABS_TOP_SRCDIR="${top_srcdir}"
         -DNDEBUG
         )
 
+set(MAX_BOARD_SIZE CACHE STRING "Max board size")
+set_property(CACHE MAX_BOARD_SIZE PROPERTY STRINGS "" 14x14 19x19 23x23)
+if(NOT MAX_BOARD_SIZE STREQUAL "")
+    message(STATUS "Setting SUPPORT_${MAX_BOARD_SIZE}")
+    add_definitions(-DSUPPORT_${MAX_BOARD_SIZE})
+endif()
+
 set(CMAKE_CXX_FLAGS "-std=c++11 -O3 -Wconversion -Wextra")
-if (${APPLE}) 
+if (${APPLE})
     message("using -stdlib=libc++")
     set(CMAKE_CXX_FLAGS "-std=c++11 -stdlib=libc++ -O3 -Wconversion -Wextra")
     set(CMAKE_EXE_LINKER_FLAGS "-stdlib=libc++")
@@ -258,4 +265,3 @@ set(SOURCE_FILES
         src/config.h
         tools/mergesgf/MergeSgfMain.cpp
 		)
-
